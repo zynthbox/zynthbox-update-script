@@ -1,4 +1,22 @@
 #!/bin/bash
 #
-# Update Script for Zynthbox 
+# Update Script for Zynthbox
 # License: GPLv3
+
+echo "####################################"
+echo "###    ZYNTHBOX UPDATE SCRIPT    ###"
+echo "####################################"
+
+echo
+echo
+
+echo "### Updating repositories"
+apt -yy update
+
+echo
+echo "### Installing packages"
+apt-get -yy install \
+    -o DPkg::Options::="--force-confdef" \
+    -o DPkg::Options::="--force-confold" \
+    -o DPkg::Options::="--force-overwrite" \
+    zynthbox-meta
