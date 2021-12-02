@@ -6,6 +6,9 @@
 DEBIAN_FRONTEND=noninteractive
 PACKAGES="zynthbox-meta zynthbox-qml libzl zynthian-quick-components zynthbox-bootsplash"
 
+###
+# Exits with code 0 if updates are available and non-zero if no updates are available
+###
 check_for_updates () {
     echo "### Updating repositories"
     apt-get -yy update
@@ -19,6 +22,9 @@ check_for_updates () {
     exit 1
 }
 
+###
+# Running this function will upgrade the listed packages
+###
 do_upgrade () {
     echo "### Installing packages"
     apt-get -yy install \
