@@ -3,20 +3,34 @@
 # Update Script for Zynthbox
 # License: GPLv3
 
+DEBIAN_FRONTEND=noninteractive
+PACKAGES="zynthbox-meta zynthbox-qml libzl zynthian-quick-components zynthbox-bootsplash"
+
+check_for_updates () {
+    echo "### Updating repositories"
+    apt-get -yy update
+
+    for pkg in $PACKAGES; do
+        if [[ $(apt list --upgradable 2>/dev/null  | grep $pkg) ]]; then
+            exit 0
+        fi
+    done
+
+    exit 1
+}
+
+do_upgrade () {
+    echo "### Installing packages"
+    apt-get -yy install \
+        -o DPkg::Options::="--force-confdef" \
+        -o DPkg::Options::="--force-confold" \
+        -o DPkg::Options::="--force-overwrite" \
+        $PACKAGES
+}
+
 echo "####################################"
 echo "###    ZYNTHBOX UPDATE SCRIPT    ###"
 echo "####################################"
 
-echo
-echo
-
-echo "### Updating repositories"
-apt -yy update
-
-echo
-echo "### Installing packages"
-apt-get -yy install \
-    -o DPkg::Options::="--force-confdef" \
-    -o DPkg::Options::="--force-confold" \
-    -o DPkg::Options::="--force-overwrite" \
-    zynthbox-meta zynthbox-qml libzl zynthian-quick-components zynthbox-bootsplash
+# Execute argument to run one of the above functions
+"$@"
