@@ -4,7 +4,7 @@
 # License: GPLv3
 
 DEBIAN_FRONTEND=noninteractive
-PACKAGES="zynthbox-meta zynthbox-qml libzl zynthian-quick-components zynthbox-bootsplash"
+PACKAGES="zynthbox-meta zynthbox-qml libzl zynthian-quick-components zynthbox-bootsplash zyncoder zynthian-webconf"
 
 ###
 # Exits with code 0 if updates are available and non-zero if no updates are available
