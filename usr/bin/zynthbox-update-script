@@ -13,12 +13,21 @@ check_for_updates () {
     echo "### Updating repositories"
     apt-get -yy update
 
-    # Check if any packages or zynthbox-z2-setup is updatable
-    for pkg in "$PACKAGES zynthbox-z2-setup" ; do
+    # Check if any of the packages has an update
+    for pkg in $PACKAGES ; do
         if [[ $(apt list --upgradable 2>/dev/null  | grep $pkg) ]]; then
             exit 0
         fi
     done
+
+    # Check if zynthbox-z2-setup is installed and has an update
+    dpkg-query -W -f='${Status}\n' zynthbox-z2-setup | head -n1 | awk '{print $3;}' | grep -q '^installed$'
+    if [ $? = 0 ]; then
+        if [[ $(apt list --upgradable 2>/dev/null  | grep "zynthbox-z2-setup") ]]; then
+            exit 0
+        fi
+    fi
+
 
     exit 1
 }
