@@ -20,15 +20,6 @@ check_for_updates () {
         fi
     done
 
-    # Check if zynthbox-z2-setup is installed and has an update
-    dpkg-query -W -f='${Status}\n' zynthbox-z2-setup | head -n1 | awk '{print $3;}' | grep -q '^installed$'
-    if [ $? = 0 ]; then
-        if [[ $(apt list --upgradable 2>/dev/null  | grep "zynthbox-z2-setup") ]]; then
-            exit 0
-        fi
-    fi
-
-
     exit 1
 }
 
@@ -44,16 +35,6 @@ do_upgrade () {
         -o DPkg::Options::="--force-confold" \
         -o DPkg::Options::="--force-overwrite" \
         $PACKAGES
-
-    # Check if zynthbox-z2-setup is installed and update if required
-    dpkg-query -W -f='${Status}\n' zynthbox-z2-setup | head -n1 | awk '{print $3;}' | grep -q '^installed$'
-    if [ $? = 0 ]; then
-        apt-get -yy install \
-            -o DPkg::Options::="--force-confdef" \
-            -o DPkg::Options::="--force-confold" \
-            -o DPkg::Options::="--force-overwrite" \
-            zynthbox-z2-setup
-    fi
 }
 
 echo "####################################"
