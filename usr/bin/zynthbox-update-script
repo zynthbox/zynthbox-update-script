@@ -4,7 +4,7 @@
 # License: GPLv3
 
 DEBIAN_FRONTEND=noninteractive
-PACKAGES="zynthbox-meta zynthbox-qml libzynthbox zynthbox-bootsplash zyncoder zynthian-webconf plasma-framework-zynthbox zynthian-plasma-theme zynthian-sys"
+PACKAGES="zynthbox-meta zynthbox-qml libzynthbox zynthbox-bootsplash zyncoder zynthian-webconf plasma-framework-zynthbox zynthian-plasma-theme zynthian-sys zynthbox-plugin-raffo"
 
 ###
 # Exits with code 0 if updates are available and non-zero if no updates are available
