@@ -3,6 +3,9 @@
 # Update Script for Zynthbox
 # License: GPLv3
 
+# Source envars to switch to venv
+source /zynthian/config/zynthian_envars.sh
+
 DEBIAN_FRONTEND=noninteractive
 PACKAGES="zynthbox-meta zynthbox-qml libzynthbox zynthbox-bootsplash zyncoder zynthian-webconf plasma-framework-zynthbox zynthian-plasma-theme zynthian-sys zynthbox-plugin-raffo"
 
