@@ -29,6 +29,8 @@ check_for_updates () {
 do_upgrade () {
     echo "### Installing packages"
 
+    pip install XStatic-term.js
+
     # Update all packages
     apt-get -yy install \
         -o DPkg::Options::="--force-confdef" \
