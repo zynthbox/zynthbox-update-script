@@ -4,7 +4,7 @@
 # License: GPLv3
 
 # Source envars to switch to venv
-source /zynthian/config/zynthian_envars.sh
+source /zynthian/zynthian-sys/config/zynthian_envars.sh
 
 DEBIAN_FRONTEND=noninteractive
 PACKAGES="zynthbox-meta zynthbox-qml libzynthbox zynthbox-bootsplash zyncoder zynthian-webconf plasma-framework-zynthbox zynthian-sys zynthbox-plugin-raffo zynthbox-docs sunshine sonobus zynthbox-plugin-fabla zynthbox-plugin-gxplugins zynthbox-theme zynthbox-theme-alt zynthbox-virtualkeyboard-theme"
