@@ -13,7 +13,8 @@ elif [ -f /zynthian/config/zynthian_envars.sh ]; then
 fi
 
 DEBIAN_FRONTEND=noninteractive
-PACKAGES="zynthbox-qml libzynthbox zynthbox-bootsplash zyncoder zynthian-webconf plasma-framework-zynthbox zynthian-sys zynthbox-plugin-raffo zynthbox-docs sunshine sonobus zynthbox-plugin-fabla zynthbox-plugin-gxplugins zynthbox-theme zynthbox-theme-alt zynthbox-virtualkeyboard-theme jackd2 libjack-jackd2-dev"
+PACKAGES="zynthbox-qml libzynthbox zynthbox-bootsplash zyncoder zynthian-webconf plasma-framework-zynthbox zynthian-sys zynthbox-plugin-raffo zynthbox-docs sunshine sonobus zynthbox-plugin-fabla zynthbox-plugin-gxplugins zynthbox-theme zynthbox-virtualkeyboard-theme jackd2 libjack-jackd2-dev"
+REMOVED_PACKAGES="zynthbox-theme-alt"
 
 ###
 # Exits with code 0 if updates are available and non-zero if no updates are available
@@ -34,11 +35,18 @@ check_for_updates () {
 
 ###
 # Running this function will upgrade the listed packages
+# and also will remove the packages removed in the current image
 ###
 do_upgrade () {
     echo "### Installing packages"
 
     pip install XStatic-term.js
+
+    # Remove obsolete packages
+    if [[ -n "$REMOVED_PACKAGES" ]]; then
+        echo "### Removing obsolete packages"
+        apt-get -yy purge $REMOVED_PACKAGES
+    fi
 
     # Update all packages
     apt-get -yy install \
