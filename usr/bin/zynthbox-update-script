@@ -13,7 +13,24 @@ elif [ -f /zynthian/config/zynthian_envars.sh ]; then
 fi
 
 DEBIAN_FRONTEND=noninteractive
-PACKAGES="zynthbox-qml libzynthbox zynthbox-bootsplash zyncoder zynthian-webconf plasma-framework-zynthbox zynthian-sys zynthbox-plugin-raffo zynthbox-docs sunshine sonobus zynthbox-plugin-fabla zynthbox-plugin-gxplugins zynthbox-theme zynthbox-virtualkeyboard-theme jackd2 libjack-jackd2-dev"
+PACKAGES="zynthbox-qml \
+          libzynthbox \
+          zynthbox-bootsplash \
+          zyncoder \
+          zynthian-webconf \
+          plasma-framework \
+          qml-module-zynthbox \
+          qml-style-zynthbox \
+          zynthian-sys \
+          zynthbox-plugin-raffo \
+          zynthbox-docs sunshine \
+          sonobus \
+          zynthbox-plugin-fabla \
+          zynthbox-plugin-gxplugins \
+          zynthbox-theme \
+          zynthbox-virtualkeyboard-theme \
+          jackd2 \
+          libjack-jackd2-dev"
 REMOVED_PACKAGES="zynthbox-theme-alt"
 
 ###
