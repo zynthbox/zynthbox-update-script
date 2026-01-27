@@ -30,7 +30,8 @@ PACKAGES="zynthbox-qml \
           zynthbox-theme \
           zynthbox-virtualkeyboard-theme \
           jackd2 \
-          libjack-jackd2-dev"
+          libjack-jackd2-dev \
+          zynthbox-soundfonts"
 REMOVED_PACKAGES="zynthbox-theme-alt"
 
 ###
