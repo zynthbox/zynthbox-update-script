@@ -32,7 +32,7 @@ PACKAGES="zynthbox-qml \
           jackd2 \
           libjack-jackd2-dev \
           zynthbox-soundfonts"
-REMOVED_PACKAGES="zynthbox-theme-alt"
+# REMOVED_PACKAGES="zynthbox-theme-alt"
 
 ###
 # Exits with code 0 if updates are available and non-zero if no updates are available
@@ -58,13 +58,13 @@ check_for_updates () {
 do_upgrade () {
     echo "### Installing packages"
 
-    pip install XStatic-term.js
-
+    # Keeping this commented since new image will be used which will not have obsolete packages.
+    # However if in future we need to remove obsolete packages, we can uncomment this section.
     # Remove obsolete packages
-    if [[ -n "$REMOVED_PACKAGES" ]]; then
-        echo "### Removing obsolete packages"
-        apt-get -yy purge $REMOVED_PACKAGES
-    fi
+    # if [[ -n "$REMOVED_PACKAGES" ]]; then
+    #     echo "### Removing obsolete packages"
+    #     apt-get -yy purge $REMOVED_PACKAGES
+    # fi
 
     # Update all packages
     apt-get -yy install \
