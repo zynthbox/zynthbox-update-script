@@ -29,7 +29,7 @@ PACKAGES="zynthbox-qml \
           zynthbox-plugin-gxplugins \
           zynthbox-theme \
           zynthbox-virtualkeyboard-theme \
-          pipewire \
+          pipewire-jack \
           wireplumber \
           zynthbox-soundfonts"
 # REMOVED_PACKAGES="zynthbox-theme-alt"
