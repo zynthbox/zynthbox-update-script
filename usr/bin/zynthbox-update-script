@@ -29,9 +29,8 @@ PACKAGES="zynthbox-qml \
           zynthbox-plugin-gxplugins \
           zynthbox-theme \
           zynthbox-virtualkeyboard-theme \
-          jackd2 \
-          libjack-jackd2-dev \
-          jack-example-tools \
+          pipewire \
+          wireplumber \
           zynthbox-soundfonts"
 # REMOVED_PACKAGES="zynthbox-theme-alt"
 
